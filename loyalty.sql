@@ -11,6 +11,7 @@ create table poslovnica (
     skupljanje_bodova boolean not null,
     koristenje_bodova boolean not null,
     mjesto varchar(50),
+    artikl int,
     kartica int not null
 );
 
@@ -29,12 +30,23 @@ create table kartica (
     broj_kartice varchar (30) not null,
     vrijedi_od datetime not null,
     vrijedi_do datetime not null,
-    ime_prezime varchar(50) not null,
+    clan int not null,
     poslovnica int not null
 );
 
 create table artikl (
+    sifra int not null primary key auto_increment,
     cijena decimal (10,2),
     skupljanje_bodova boolean,
-    koristenje_bodova boolean
+    koristenje_bodova boolean,
+    poslovnica int not null
 );
+
+#definiranje vanjskih  kljuceva
+
+alter table poslovnica add foreign key (kartica) references kartica(sifra);
+alter table clan add foreign key (kartica) references kartica (sifra);
+alter table artikl add foreign key (poslovnica) references poslovnica (sifra);
+
+
+
