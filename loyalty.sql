@@ -21,12 +21,12 @@ create table clan (
     adresa varchar (50) not null,
     postanski_broj int not null,
     datum_rodenja datetime,
-    kontakt varchar(50)
+    kontakt varchar(50) not null
 );
 
 create table kartica (
     sifra int not null primary key auto_increment,
-    broj_kartice varchar (30),
+    broj_kartice varchar (30) not null,
     vrijedi_od datetime not null,
     vrijedi_do datetime not null,
     ime_prezime varchar(50) not null,
