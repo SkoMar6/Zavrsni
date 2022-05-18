@@ -11,8 +11,7 @@ create table poslovnica (
     skupljanje_bodova boolean not null,
     koristenje_bodova boolean not null,
     mjesto varchar(50),
-    artikl int,
-    kartica int not null
+    artikl int
 );
 
 create table clan (
@@ -44,9 +43,13 @@ create table artikl (
 
 #definiranje vanjskih  kljuceva
 
-alter table poslovnica add foreign key (kartica) references kartica(sifra);
+alter table kartica add foreign key (poslovnica) references poslovnica(sifra);
 alter table clan add foreign key (kartica) references kartica (sifra);
 alter table artikl add foreign key (poslovnica) references poslovnica (sifra);
+
+#unos podataka 
+insert into poslovnica (sifra,broj_poslovnice, skupljanje_bodova, koristenje_bodova)
+values (null,'posl-1', true, true);
 
 
 
