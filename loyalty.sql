@@ -1,4 +1,4 @@
-# mysql -uroot --default_character_set=utf8 <C:\Users\Marko\Documents\GitHub\zavrsni\loyalty.sql
+# mysql -uroot --default_character_set=utf8 <C:\Users\Marko\Documents\GitHub\Zavrsni\loyalty.sql
 # sifra int not null primary key auto_increment,
 
 drop database if exists loyalty;
@@ -10,8 +10,7 @@ create table poslovnica (
     broj_poslovnice varchar(30) not null,
     skupljanje_bodova boolean not null,
     koristenje_bodova boolean not null,
-    mjesto varchar(50),
-    artikl int
+    mjesto varchar(50)
 );
 
 create table clan (
@@ -29,7 +28,6 @@ create table kartica (
     broj_kartice varchar (30) not null,
     vrijedi_od datetime not null,
     vrijedi_do datetime not null,
-    clan int not null,
     poslovnica int not null
 );
 
@@ -40,6 +38,8 @@ create table artikl (
     koristenje_bodova boolean,
     poslovnica int not null
 );
+
+
 
 #definiranje vanjskih  kljuceva
 
